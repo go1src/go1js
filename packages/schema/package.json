@@ -1,0 +1,12 @@
+{
+  "name": "@go1js/schema",
+  "version": "0.0.1-alpha.0",
+  "description": "GO1 schema",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc --build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GO1 Pty Ltd",
+  "license": "ISC"
+}

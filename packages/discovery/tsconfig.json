@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "esModuleInterop": true,
+    "jsx": "react",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./lib",
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true
+  },
+  "exclude": [
+    "node_modules/**",
+    "lib"
+  ]
+}

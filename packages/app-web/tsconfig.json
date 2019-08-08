@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "esnext",
+    "outDir": "build/dist",
+    "lib": [
+      "es6",
+      "es2016",
+      "dom"
+    ],
+    "baseUrl": "http://localhost:3000",
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "rootDir": "./src",
+    "rootDirs": [
+      "./src",
+      "./config",
+      "./resources",
+    ],
+    "typeRoots" : [
+      "./node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "lib",
+    "build",
+    "node_modules",
+    "src/client/*"
+  ],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ]
+}

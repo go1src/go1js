@@ -1,0 +1,40 @@
+{
+  "nav": {
+    "items": [
+      { 
+        "text": "My Learning",
+        "pathname": "/learning"
+      },
+      { 
+        "text": "My Teaching",
+        "pathname": "/teaching"
+      },
+      { 
+        "text": "Explore",
+        "pathname": "/explore"
+      },
+      { 
+        "text": "Groups",
+        "pathname": "/groups"
+      }
+    ]
+  },
+  "features": {
+    "learning": {
+      "pathname": "/learning",
+      "library": "@go1js/learning",
+      "component": "Learning"
+    },
+    "explore": {
+      "pathname": "/explore",
+      "library": "@go1js/discovery",
+      "component": "Explore"
+    },
+    "teaching": {
+      "pathname": "/teaching",
+      "library": "@go1js/learning",
+      "component": "Teaching"
+    }
+
+  }
+}
