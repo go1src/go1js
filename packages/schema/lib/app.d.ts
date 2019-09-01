@@ -15,12 +15,15 @@ export interface NavItem {
     text: string;
     pathname: string;
     hint?: string;
+    component?: string;
+    library?: string;
 }
 export interface NavItemAction<ActionType> extends NavItem {
     action: ActionType;
 }
 export interface Nav extends NavItem {
     items: NavItem[];
+    classes?: any;
 }
 export interface AppFeature {
     component: string;

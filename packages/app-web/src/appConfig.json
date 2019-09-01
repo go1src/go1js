@@ -1,6 +1,10 @@
 {
   "nav": {
     "items": [
+      {
+        "component": "SearchInput",
+        "library": "@go1js/discovery"
+      },
       { 
         "text": "My Learning",
         "pathname": "/learning"
@@ -14,8 +18,8 @@
         "pathname": "/explore"
       },
       { 
-        "text": "Groups",
-        "pathname": "/groups"
+        "text": "Report",
+        "pathname": "/report"
       }
     ]
   },
@@ -34,7 +38,11 @@
       "pathname": "/teaching",
       "library": "@go1js/learning",
       "component": "Teaching"
+    },
+    "report": {
+      "pathname": "/report",
+      "library": "@go1js/analytics",
+      "component": "ReportView"
     }
-
   }
 }

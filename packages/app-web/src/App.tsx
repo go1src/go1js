@@ -1,47 +1,52 @@
+import { ReportView } from '@go1js/analytics';
 import { App as AppType } from '@go1js/schema';
-import React, { Component, lazy, Suspense } from 'react';
+import { createStyles, CssBaseline, LinearProgress, Theme, withStyles } from '@material-ui/core';
+import React, { Component, Suspense } from 'react';
 import AppNav from './components/AppNav';
 
 import {
-  BrowserRouter, Route, Switch, withRouter,
+  BrowserRouter, Route,
 } from 'react-router-dom';
+import { loadComponent } from './config/loadComponent';
 
-export default class App extends Component {
+const styles = (theme: Theme) => createStyles({
+  root: {
+    flexGrow: 1,
+  },
+});
+
+interface AppProps {
+  classes?: any;
+}
+
+class App extends Component<AppProps> {
   private app: AppType.App;
-  private components = [];
-  private modules = [];
   constructor(props) {
     super(props);
     this.app = require('./appConfig.json');
   }
 
   public render() {
+    const { classes } = this.props;
+
     return (
       <BrowserRouter>
         <React.Fragment>
+          <CssBaseline/>
+          <div className={classes.root} >
             { this.app.nav && <AppNav {...this.app.nav}/> }
-            <Suspense fallback='Loading...'>
+            <Suspense fallback={'Loading...'}>
               {Object.keys(this.app.features).map( (key) => {
-                const { pathname } = this.app.features[key];
-                return <Route exact path={pathname} component={this.loadComponent(this.app.features[key])}/>;
+                const { pathname, library, component } = this.app.features[key];
+                return <Route key={pathname} exact path={pathname} component={loadComponent(library, component)}/>;
               })}
+              <Route key='/report' exact path={'/report'} component={ReportView}/>
             </Suspense>
+          </div>
         </React.Fragment>
       </BrowserRouter>
     );
   }
-
-  private loadComponent(feature: AppType.AppFeature): React.LazyExoticComponent<any> {
-    const {library, component } = feature;
-    if ( library ) {
-      switch ( library ) {
-        case '@go1js/learning':
-            return lazy(() => import('@go1js/learning').then((module) => ({default: module[component]}) ));
-        case '@go1js/discovery':
-          return lazy(() => import('@go1js/discovery').then((module) => ({default: module[component]}) ));
-      }
-    } else {
-      return lazy(() => import(`${component}`));
-    }
-  }
 }
+
+export default withStyles(styles)(App);

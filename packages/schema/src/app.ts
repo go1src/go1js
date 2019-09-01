@@ -24,6 +24,8 @@ export interface NavItem {
   text: string;
   pathname: string;
   hint?: string;
+  component?: string;
+  library?: string;
 }
 
 export interface NavItemAction<ActionType> extends NavItem {
@@ -32,6 +34,7 @@ export interface NavItemAction<ActionType> extends NavItem {
 
 export interface Nav extends NavItem {
   items: NavItem[];
+  classes?: any;
 }
 
 // export interface NavList {
